@@ -1,0 +1,1122 @@
+
+/* ===========================
+   RESET
+=========================== */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    width: 100%;
+    max-width: 430px;
+
+    margin: auto;
+    overflow-x: hidden;
+    background: #000;
+    color: #fff;
+    font-family: sans-serif;
+}
+/* ===========================
+   FONTS
+=========================== */
+@font-face {
+    font-family:"mazeta";
+    src: url(mazeta/Mazeta-Wearm\ School.otf) format("truetype");
+}
+@font-face {
+    font-family: "shkdzeragir";
+    src: url(shkdzeragir/SHK_Dzeragir.otf) format("truetype");
+}
+@font-face {
+    font-family: "noyemi";
+    src: url(noyemi/Noyemi.otf) format("truetype");
+}
+@font-face {
+    font-family: "cosiarm";
+    src: url(cosiarm/CosiArm.ttf);
+}
+@font-face {
+    font-family: "aida";
+    src: url(aida/SHK_Aida.otf) format("truetype");
+}
+@font-face {
+    font-family: "willow-font";
+    src: url(willow-font/Willow-xRXlV.ttf) format("truetype");
+}
+@font-face {
+    font-family: "organerie-font";
+    src: url(orangerie-font/OrangeriePersonalUseOnlyRegular-ALaXL.otf) format("truetype");
+}
+@font-face {
+    font-family: "birds-of-paradise-font";
+    src: url(birds-of-paradise-font/BirdsOfParadisePersonalUseOnly-dX7X.ttf) format("truetype");
+}
+@font-face {
+    font-family: "cormorant";
+    src: url(cormorant.ttf);
+      font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "vtkslettering";
+    src: url(vtkslettering.ttf);
+      font-weight: normal;
+    font-style: normal;
+}
+/* ===========================
+   GLOBAL
+=========================== */
+img{
+    width: 100%;
+    display: block;
+    height: auto;
+}
+section{
+   position: relative;
+   z-index: 10;
+   min-height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 60px 25px;
+}
+
+h2{
+    font-family: "aida";
+    font-size: 32px;
+    line-height: 1.4;
+    text-align: center;
+    margin-bottom: 18px;
+}
+h3{
+    font-family: "aida";
+    font-size: 22px;
+    font-weight: 300;
+    margin: 8px 0;
+    text-align: center;
+}
+p{
+    font-family: "aida";
+    font-size: 19px;
+    line-height: 1.8;
+    text-align: center;
+}
+/* ===========================
+   HERO
+=========================== */
+/* ===========================
+   HERO
+=========================== */
+
+.hero{
+
+position:relative;
+
+width:100%;
+
+height:100vh;
+
+overflow:hidden;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+.hero::before{
+
+content:"";
+position: fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:url("wedding.png") center center / cover no-repeat;
+
+filter:brightness(60%);
+
+z-index:-1;
+
+animation:zoomHero 18s ease-in-out infinite alternate;
+
+}
+
+.hero-overlay{
+
+position:absolute;
+
+inset:0;
+
+z-index:1;
+
+}
+
+.hero-content{
+
+position:relative;
+
+z-index:5;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
+text-align:center;
+
+padding:30px;
+
+}
+
+.name{
+
+font-family:"cosiarm";
+
+font-size:30px;
+
+letter-spacing:4px;
+
+color:white;
+
+text-shadow:0 10px 25px rgba(0,0,0,.5);
+
+}
+
+.amp{
+
+font-family:"cosiarm";
+
+font-size:30px;
+
+margin:15px 0;
+
+color:white;
+
+}
+
+.invite{
+
+margin-top:30px;
+
+font-family:"aida";
+
+font-size:22px;
+
+color:white;
+
+}
+main{
+
+position:relative;
+
+z-index:10;
+
+}
+
+.section{
+
+position:relative;
+
+min-height:100vh;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+padding:70px 25px;
+
+}
+
+/* ===========================
+   Ornament
+=========================== */
+.ornament{
+    text-align: center;
+    margin: 30px 0;
+}
+.ornament img{
+    width: 170px;
+    margin: auto;
+}
+
+/* ===========================
+   RSVP
+=========================== */
+
+.rsvp{
+    width: calc(100% - 40px);
+    max-width: 390px;
+    margin: 70px auto;
+    padding: 32px;
+    border-radius: 28px;
+    background: rgba(255,255,255,.08);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    border: 1px solid rgba(255,255,255,.15);
+    box-shadow: 
+    0 10px 40px rgba(0,0,0,.35),
+    inset 0 1px 0 rgba(255,255,255,.12);
+}
+
+.rsvp h2{
+    font-family: "aida";
+    font-size: 25px;
+    line-height: 1.45;
+    color: #fff;
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+.deadline{
+    font-family: "aida";
+    font-size: 22px;
+    margin-bottom: 28px;
+    text-align: left;
+    color: #fff;
+}
+
+#rsvpForm{
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+#rsvpForm input:not([type="radio"]),
+#rsvpForm select{
+
+width:100%;
+height:55px;
+
+border:none;
+outline:none;
+
+border-radius:18px;
+
+padding:0 22px;
+
+background:#fff;
+
+color:#555;
+
+font-size:17px;
+
+font-family:"aida";
+
+box-shadow:
+inset 0 2px 5px rgba(0,0,0,.06);
+
+}
+.radio-group input[type="radio"]{
+       width: 15px !important;
+    height: 15px !important;
+
+    margin: 0;
+
+    flex-shrink: 0;
+
+    accent-color: white;
+
+   
+}
+
+#rsvpForm input::placeholder{
+    
+    color:#8f8f8f;
+}
+
+.radio-group{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.radio-group label{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    font-family: "aida";
+    color: white;
+    width: 48%;
+}
+
+.radio-group input{
+    width: 20px;
+    height: 20px;
+}
+.radio-group label span{
+    display:inline-block !important;
+    color:#fff !important;
+    font-family:"aida", sans-serif;
+    font-size:17px;
+    line-height:1.4;
+}
+
+
+#rsvpForm button{
+    margin-top: 15px;
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 35px;
+    background: #fff;
+    color: #333;
+    font-family: "aida";
+    font-size: 20px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+#rsvpForm button:hover{
+    transform:scale(1.03);
+}
+
+
+
+.map-btn{
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+width:100%;
+
+margin-top:15px;
+
+text-decoration:none;
+
+color:white;
+
+font-size:15px;
+
+font-family:"aida";
+position: relative;
+z-index: 100;
+
+}
+
+.save-date{
+    position: relative;
+    z-index: 10;
+
+    width: 90%;
+    max-width: 360px;
+
+    margin: auto;
+    padding: 35px 25px;
+
+    border-radius: 30px;
+
+    background: rgba(35, 35, 35, 0.45);
+
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    border: 1px solid rgba(255,255,255,0.18);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.35),
+        inset 0 1px 0 rgba(255,255,255,.12);
+
+    overflow: hidden;
+} 
+.date{
+    position: relative;
+    z-index: 10;
+
+    width: 90%;
+    max-width: 360px;
+
+    margin: auto;
+    padding: 35px 25px;
+
+    border-radius: 25px;
+
+    background: rgba(35, 35, 35, 0.45);
+
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    border: 1px solid rgba(255,255,255,0.18);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.35),
+        inset 0 1px 0 rgba(255,255,255,.12);
+
+    overflow: hidden;
+}
+
+.save-date{
+    font-family: "willow-font";
+    font-size: 25px;
+    color: rgba(255,255,255,.85);
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+.date{
+    font-family: "cosiarm";
+    font-size: 15px;
+    font-weight:300;
+    color: white;
+    letter-spacing: 6px;
+    text-shadow: 0 3px 12px rgba(0,0,0,.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+
+}
+
+.date-card{
+    transition: .35s;
+
+}
+
+.date-card:hover{
+    transform: translateY(-4px);
+    box-shadow: 
+    0 30px 70px rgba(0,0,0,.45),
+    inset 0 1px 0 rgba(255,255,255,.12);
+}
+
+.hidden{
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 1s ease;
+}
+
+.show{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+   
+
+   
+
+
+@keyframes fadeHero{
+
+from{
+
+opacity:0;
+
+transform:translateY(30px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+.rsvp,
+.date-card,
+.place-card{
+
+transition:.4s;
+
+}
+
+.rsvp:hover,
+.date-card:hover,
+.place-card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 25px 60px rgba(0,0,0,.35);
+
+}
+
+button:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 15px 35px rgba(255,255,255,.18);
+
+}
+.ornament img{
+
+animation:float 4s ease-in-out infinite;
+
+}
+
+@keyframes float{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-10px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+.hero::before{
+
+animation:zoomHero 18s linear infinite alternate;
+
+}
+
+@keyframes zoomHero{
+
+from{
+
+transform:scale(1);
+
+}
+
+to{
+
+transform:scale(1.08);
+
+}
+
+}
+.hidden{
+
+    opacity:0;
+
+    transform:translateY(50px);
+
+    transition:
+    opacity .9s ease,
+    transform .9s ease;
+
+}
+
+.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+/* ===============================
+ANIMATIONS
+================================*/
+@keyframes fadeUp {
+    0%{
+        opacity: 0;
+        transform: translateY(45px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+}
+@keyframes zoom {
+    0%{
+        opacity: 0;
+        transform: scale(.95);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }
+    
+}
+
+
+.date-card{
+   animation:fadeUp 1.6s ease; 
+}
+
+.rsvp{
+    animation: fadeUp 1.8s ease;
+}
+
+.ornament img{
+    animation: float 4s ease-in-out infinite;
+}
+
+
+
+button,
+.map-btn{
+    transition: .35s;
+}
+button:hover,
+.map-btn:hover{
+    transform: scale(1.05);
+}
+.date{
+    animation: fadeUp 2s ease;
+}
+.place-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 18px;
+}
+
+.map-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 60px;
+
+    text-decoration: none;
+
+    color: #fff;
+
+    font-family: "aida";
+    font-size: 20px;
+
+    border-radius: 18px;
+
+    background: rgba(255,255,255,.08);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    transition: .3s;
+}
+
+.map-btn:hover{
+    background: rgba(255,255,255,.15);
+    transform: scale(1.03);
+}
+/* ==========================
+   PLACE CARD
+========================== */
+
+.place-card{
+
+    width:92%;
+    max-width:390px;
+
+    margin:35px auto 55px;
+
+    padding:18px;
+
+    border-radius:28px;
+
+    background:rgba(35,35,35,.45);
+
+    backdrop-filter:blur(22px);
+    -webkit-backdrop-filter:blur(22px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.35),
+        inset 0 1px 0 rgba(255,255,255,.08);
+
+    overflow:hidden;
+
+    transition:.35s;
+}
+
+.place-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:
+        0 28px 60px rgba(0,0,0,.45),
+        inset 0 1px 0 rgba(255,255,255,.12);
+
+}
+
+.place-card img{
+
+    width:100%;
+    height:240px;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+    display:block;
+
+    transition:.6s;
+
+}
+
+.place-card:hover img{
+
+    transform:scale(1.05);
+
+}
+
+.place-footer{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin-top:20px;
+
+}
+
+.map-btn{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:100%;
+    height:58px;
+
+    border-radius:18px;
+
+    text-decoration:none;
+
+    font-family:"aida";
+    font-size:20px;
+
+    color:#fff;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    transition:.35s;
+
+}
+
+.map-btn:hover{
+
+    background:rgba(255,255,255,.15);
+
+    transform:scale(1.03);
+
+}
+
+/* ==========================
+   FADE ANIMATIONS
+========================== */
+.name{
+    animation: heroFade 1.2s ease;
+}
+
+.amp{
+    animation: heroFade 1.6s ease;
+}
+
+.invite{
+    animation: heroFade 2s ease;
+}
+
+@keyframes heroFade{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+.ornament img{
+    animation: float 4s ease-in-out infinite;
+}
+
+.place-card{
+    transition: transform .3s ease;
+}
+
+.place-card:hover{
+    transform:translateY(-5px);
+}
+button,
+.map-btn{
+    transition:.3s ease;
+}
+
+button:hover,
+.map-btn:hover{
+    transform:scale(1.03);
+}
+.calendar-card{
+    text-align:center;
+}
+.calendar-card{
+
+width:90%;
+max-width:360px;
+
+padding:35px 25px;
+
+border-radius:30px;
+
+background:rgba(35,35,35,.45);
+
+backdrop-filter:blur(25px);
+
+-webkit-backdrop-filter:blur(25px);
+
+border:1px solid rgba(255,255,255,.18);
+
+text-align:center;
+
+}
+/* ================= LANGUAGE SWITCHER ================= */
+
+.language-switcher {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 6px;
+
+    background: rgba(0, 0, 0, 0.35);
+
+    border: 1px solid rgba(212, 175, 55, 0.55);
+
+    border-radius: 50px;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+
+.lang-btn {
+
+    width: 38px;
+    height: 38px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.lang-btn:hover {
+    transform: scale(1.08);
+}
+
+
+.lang-btn.active {
+
+    background: rgba(212, 175, 55, 0.9);
+
+    box-shadow:
+        0 0 15px rgba(212, 175, 55, 0.45);
+
+    transform: scale(1.05);
+}
+
+/* ================= RUSSIAN FONTS ================= */
+
+/* Հայերեն */
+
+body.hy .name {
+    font-family: "cosiarm";
+}
+
+body.hy .invite {
+    font-family: "aida";
+}
+
+
+/* Ռուսերեն */
+
+body.ru .name {
+    font-family: "greatvibes"
+}
+
+body.ru .invite {
+    font-family: "cormorant"
+}
+body.ru #intro {
+    font-size: 19px;
+    line-height: 1.6;
+}
+
+body.ru #rsvpTitle {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+body.ru .place-card h3 {
+    line-height: 1.3;
+}
+.language-switcher {
+    touch-action: manipulation;
+}
+
+.lang-btn {
+    -webkit-tap-highlight-color: transparent;
+
+}
+
+
+/* ===============================
+   ՌՈՒՍԵՐԵՆ RSVP ՏԵՔՍՏԵՐ
+   =============================== */
+
+body.ru .rsvp input,
+body.ru .rsvp select {
+    font-size: 13px;
+}
+
+
+/* Անուն, հեռախոս, հյուրերի քանակ */
+
+body.ru .rsvp input::placeholder {
+    font-size: 13px;
+}
+
+
+/* Որ կողմն եք / Հարսի կողմ / Փեսայի կողմ */
+
+body.ru .rsvp select,
+body.ru .rsvp option {
+    font-size: 13px;
+}
+
+
+/* Կգանք / Չենք կարող գալ */
+
+body.ru .rsvp .radio-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+}
+
+body.ru .rsvp .radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    line-height: 1.2;
+    white-space: normal;
+}
+
+body.ru .rsvp .radio-group input[type="radio"] {
+    flex-shrink: 0;
+    width: 15px !important;
+    height: 15px !important;
+}
+
+
+
+/* Ուղարկել */
+
+body.ru .rsvp button[type="submit"] {
+    font-size: 15px;
+}
+
+/* Ռուսերեն "С чьей стороны?" */
+
+body.ru .rsvp select#side {
+    font-size: 13px !important;
+    font-family: "Cormorant Garamond", serif !important;
+}
+
+body.ru .rsvp select#side option {
+    font-size: 13px !important;
+}
+/* ===============================
+   ՀԱՅԵՐԵՆ RSVP ՏԵՔՍՏԵՐ
+   =============================== */
+
+body.hy .rsvp input,
+body.hy .rsvp select {
+    font-size: 13px !important;
+}
+
+
+/* Placeholder-ներ */
+
+body.hy .rsvp input::placeholder {
+    font-size: 13px !important;
+}
+
+
+/* "Որ կողմն եք" */
+
+body.hy .rsvp select#side {
+    font-size: 13px !important;
+}
+
+
+/* Select-ի տարբերակներ */
+
+body.hy .rsvp select#side option {
+    font-size: 13px !important;
+}
