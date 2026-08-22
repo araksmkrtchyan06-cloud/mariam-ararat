@@ -347,22 +347,24 @@ if (rsvpForm) {
         }
 
        /* ==========================================
-   RSVP → MAKE
+   RSVP → MAKE → TELEGRAM
    ========================================== */
 
-const rsvpForm = document.getElementById("rsvpForm");
+document.addEventListener("DOMContentLoaded", function () {
 
-if (rsvpForm) {
+    const rsvpForm = document.getElementById("rsvpForm");
+
+    if (!rsvpForm) return;
 
     rsvpForm.addEventListener("submit", function (e) {
 
         e.preventDefault();
 
         const name =
-            document.getElementById("name").value;
+            document.getElementById("name").value.trim();
 
         const phone =
-            document.getElementById("phone").value;
+            document.getElementById("phone").value.trim();
 
         const side =
             document.getElementById("side").value;
@@ -376,13 +378,15 @@ if (rsvpForm) {
             );
 
         const answer =
-            answerInput ? answerInput.value : "";
+            answerInput
+                ? answerInput.value
+                : "";
 
+        /* Լեզուն վերցնում ենք localStorage-ից */
         const currentLang =
-            typeof lang !== "undefined"
-                ? lang
-                : "hy";
+            localStorage.getItem("weddingLanguage") || "hy";
 
+        /* Make Webhook */
         const webhookURL =
             "https://hook.eu1.make.com/avhk8ndhowy1cablkiuifhijvnm8ryfy";
 
@@ -399,20 +403,50 @@ if (rsvpForm) {
             method: "POST",
             mode: "no-cors",
             body: data
+        })
+        .then(function () {
+
+            if (currentLang === "ru") {
+
+                alert(
+                    "Спасибо ❤️ Ваш ответ отправлен."
+                );
+
+            } else {
+
+                alert(
+                    "Շնորհակալություն ❤️ Ձեր պատասխանը ուղարկված է։"
+                );
+
+            }
+
+            rsvpForm.reset();
+
+        })
+        .catch(function (error) {
+
+            console.error(
+                "RSVP Error:",
+                error
+            );
+
+            if (currentLang === "ru") {
+
+                alert(
+                    "Не удалось отправить. Попробуйте ещё раз."
+                );
+
+            } else {
+
+                alert(
+                    "Չհաջողվեց ուղարկել։ Խնդրում ենք կրկին փորձել։"
+                );
+
+            }
+
         });
-
-        if (currentLang === "ru") {
-
-            alert("Спасибо ❤️ Ваш ответ отправлен.");
-
-        } else {
-
-            alert("Շնորհակալություն ❤️ Ձեր պատասխանը ուղարկված է։");
-
-        }
-
-        rsvpForm.reset();
 
     });
 
+});
 }
