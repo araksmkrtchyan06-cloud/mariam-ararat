@@ -346,9 +346,42 @@ if (rsvpForm) {
 
         }
 
-        /* ==========================================
-           MAKE WEBHOOK
-           ========================================== */
+       /* ==========================================
+   RSVP → MAKE
+   ========================================== */
+
+const rsvpForm = document.getElementById("rsvpForm");
+
+if (rsvpForm) {
+
+    rsvpForm.addEventListener("submit", function (e) {
+
+        e.preventDefault();
+
+        const name =
+            document.getElementById("name").value;
+
+        const phone =
+            document.getElementById("phone").value;
+
+        const side =
+            document.getElementById("side").value;
+
+        const guestCount =
+            document.getElementById("guestCount").value;
+
+        const answerInput =
+            document.querySelector(
+                'input[name="answer"]:checked'
+            );
+
+        const answer =
+            answerInput ? answerInput.value : "";
+
+        const currentLang =
+            typeof lang !== "undefined"
+                ? lang
+                : "hy";
 
         const webhookURL =
             "https://hook.eu1.make.com/avhk8ndhowy1cablkiuifhijvnm8ryfy";
@@ -357,37 +390,28 @@ if (rsvpForm) {
 
         data.append("name", name);
         data.append("phone", phone);
-        data.append("side", telegramSide);
+        data.append("side", side);
         data.append("guestCount", guestCount);
-        data.append("answer", telegramAnswer);
+        data.append("answer", answer);
         data.append("language", currentLang);
 
-        try {
+        fetch(webhookURL, {
+            method: "POST",
+            mode: "no-cors",
+            body: data
+        });
 
-            await fetch(webhookURL, {
-                method: "POST",
-                body: data
-            });
+        if (currentLang === "ru") {
 
-            alert(
-                currentLang === "ru"
-                    ? "Спасибо ❤️ Ваш ответ отправлен."
-                    : "Շնորհակալություն ❤️ Ձեր պատասխանը ուղարկված է։"
-            );
+            alert("Спасибо ❤️ Ваш ответ отправлен.");
 
-            rsvpForm.reset();
+        } else {
 
-        } catch (error) {
-
-            alert(
-                currentLang === "ru"
-                    ? "Не удалось отправить. Попробуйте ещё раз."
-                    : "Չհաջողվեց ուղարկել։ Խնդրում ենք կրկին փորձել։"
-            );
-
-            console.error(error);
+            alert("Շնորհակալություն ❤️ Ձեր պատասխանը ուղարկված է։");
 
         }
+
+        rsvpForm.reset();
 
     });
 
