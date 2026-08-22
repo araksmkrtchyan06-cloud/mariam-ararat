@@ -71,7 +71,7 @@ const translations = {
 
         rsvpTitle: "Խնդրում ենք հաստատել Ձեր ներկայությունը",
 
-        deadline: "մինչև 15․09․2026",
+        deadline: "մինչև 20․10․2026",
 
         namePlaceholder: "Անուն Ազգանուն",
 
@@ -165,7 +165,7 @@ const translations = {
 
         rsvpTitle: "Пожалуйста, подтвердите Ваше присутствие",
 
-        deadline: "до 15.09.2026",
+        deadline: "до 20.10.2026",
 
         namePlaceholder: "Имя и Фамилия",
 
