@@ -290,3 +290,105 @@ document.addEventListener(
 
     }
 );
+/* ==========================================
+   RSVP → MAKE → TELEGRAM
+   ========================================== */
+
+const rsvpForm = document.getElementById("rsvpForm");
+
+if (rsvpForm) {
+
+    rsvpForm.addEventListener("submit", async function (e) {
+
+        e.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const phone = document.getElementById("phone").value;
+        const side = document.getElementById("side").value;
+        const guestCount = document.getElementById("guestCount").value;
+
+        const answerInput =
+            document.querySelector('input[name="answer"]:checked');
+
+        const answer = answerInput
+            ? answerInput.value
+            : "";
+
+        /* ==========================================
+           ԼԵԶՈՒ
+           ========================================== */
+
+        const currentLang =
+            typeof lang !== "undefined"
+                ? lang
+                : "hy";
+
+        let telegramSide = side;
+        let telegramAnswer = answer;
+
+        if (currentLang === "ru") {
+
+            if (side === "Со стороны невесты") {
+                telegramSide = "Со стороны невесты";
+            }
+
+            if (side === "Со стороны жениха") {
+                telegramSide = "Со стороны жениха";
+            }
+
+            if (answer === "Кгանք" || answer === "Кгանք") {
+                telegramAnswer = "Придём";
+            }
+
+            if (answer === "Չենք կարող գալ") {
+                telegramAnswer = "Не сможем прийти";
+            }
+
+        }
+
+        /* ==========================================
+           MAKE WEBHOOK
+           ========================================== */
+
+        const webhookURL =
+            "https://hook.eu1.make.com/avhk8ndhowy1cablkiuifhijvnm8ryfy";
+
+        const data = new URLSearchParams();
+
+        data.append("name", name);
+        data.append("phone", phone);
+        data.append("side", telegramSide);
+        data.append("guestCount", guestCount);
+        data.append("answer", telegramAnswer);
+        data.append("language", currentLang);
+
+        try {
+
+            await fetch(webhookURL, {
+                method: "POST",
+                body: data
+            });
+
+            alert(
+                currentLang === "ru"
+                    ? "Спасибо ❤️ Ваш ответ отправлен."
+                    : "Շնորհակալություն ❤️ Ձեր պատասխանը ուղարկված է։"
+            );
+
+            rsvpForm.reset();
+
+        } catch (error) {
+
+            alert(
+                currentLang === "ru"
+                    ? "Не удалось отправить. Попробуйте ещё раз."
+                    : "Չհաջողվեց ուղարկել։ Խնդրում ենք կրկին փորձել։"
+            );
+
+            console.error(error);
+
+        }
+
+    });
+
+}
