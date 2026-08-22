@@ -388,7 +388,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         /* Make Webhook */
         const webhookURL =
-            "https://hook.eu1.make.com/avhk8ndhowy1cablkiuifhijvnm8ryfy";
+            "https://hook.eu1.make.com/auvvx0q6cafpphz34hrinbnaw67roy3s";
 
         const data = new URLSearchParams();
 
