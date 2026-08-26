@@ -1120,3 +1120,26 @@ body.hy .rsvp select#side {
 body.hy .rsvp select#side option {
     font-size: 13px !important;
 }
+
+#simpleThankYou {
+    display: none;
+    text-align: center;
+    margin: 25px auto 40px;
+    padding: 0 20px;
+    font-family: "aida", sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+#simpleThankYou .thankYouHy,
+#simpleThankYou .thankYouRu {
+    display: none;
+}
+
+#simpleThankYou.hy .thankYouHy {
+    display: block;
+}
+
+#simpleThankYou.ru .thankYouRu {
+    display: block;
+}
