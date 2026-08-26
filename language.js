@@ -6,11 +6,11 @@ const translations = {
 
     hy: {
 
-        title: "Մարիամ & Արարատ",
+        title: "Արարատ & Մարիամ",
 
-        bride: "ՄԱՐԻԱՄ",
+        bride: "ԱՐԱՐԱՏ",
 
-        groom: "ԱՐԱՐԱՏ",
+        groom: "ՄԱՐԻԱՄ",
 
         invite: "Սիրով հրավիրում ենք Ձեզ",
 
@@ -100,11 +100,11 @@ const translations = {
 
     ru: {
 
-        title: "Мариам & Арарат",
+        title: "Арарат & Мариам",
 
-        bride: "МАРИАМ",
+        bride: "АРАРАТ",
 
-        groom: "АРАРАТ",
+        groom: "МАРИАМ",
 
         invite: "С любовью приглашаем Вас",
 
