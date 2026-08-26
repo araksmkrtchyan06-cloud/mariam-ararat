@@ -291,162 +291,27 @@ document.addEventListener(
     }
 );
 /* ==========================================
-   RSVP → MAKE → TELEGRAM
+   RSVP — ՇՆՈՐՀԱԿԱԼՈՒԹՅՈՒՆ
    ========================================== */
 
-const rsvpForm = document.getElementById("rsvpForm");
+function showSimpleThankYou() {
 
-if (rsvpForm) {
+    const message =
+        document.getElementById("simpleThankYou");
 
-    rsvpForm.addEventListener("submit", async function (e) {
+    if (!message) return;
 
-        e.preventDefault();
+    message.classList.remove("hy", "ru");
 
-        const name = document.getElementById("name").value;
-        const phone = document.getElementById("phone").value;
-        const side = document.getElementById("side").value;
-        const guestCount = document.getElementById("guestCount").value;
+    if (document.body.classList.contains("ru")) {
 
-        const answerInput =
-            document.querySelector('input[name="answer"]:checked');
+        message.classList.add("ru");
 
-        const answer = answerInput
-            ? answerInput.value
-            : "";
+    } else {
 
-        /* ==========================================
-           ԼԵԶՈՒ
-           ========================================== */
+        message.classList.add("hy");
 
-        const currentLang =
-            typeof lang !== "undefined"
-                ? lang
-                : "hy";
+    }
 
-        let telegramSide = side;
-        let telegramAnswer = answer;
-
-        if (currentLang === "ru") {
-
-            if (side === "Со стороны невесты") {
-                telegramSide = "Со стороны невесты";
-            }
-
-            if (side === "Со стороны жениха") {
-                telegramSide = "Со стороны жениха";
-            }
-
-            if (answer === "Кгանք" || answer === "Кгանք") {
-                telegramAnswer = "Придём";
-            }
-
-            if (answer === "Չենք կարող գալ") {
-                telegramAnswer = "Не сможем прийти";
-            }
-
-        }
-
-       /* ==========================================
-   RSVP → MAKE → TELEGRAM
-   ========================================== */
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    const rsvpForm = document.getElementById("rsvpForm");
-
-    if (!rsvpForm) return;
-
-    rsvpForm.addEventListener("submit", function (e) {
-
-        e.preventDefault();
-
-        const name =
-            document.getElementById("name").value.trim();
-
-        const phone =
-            document.getElementById("phone").value.trim();
-
-        const side =
-            document.getElementById("side").value;
-
-        const guestCount =
-            document.getElementById("guestCount").value;
-
-        const answerInput =
-            document.querySelector(
-                'input[name="answer"]:checked'
-            );
-
-        const answer =
-            answerInput
-                ? answerInput.value
-                : "";
-
-        /* Լեզուն վերցնում ենք localStorage-ից */
-        const currentLang =
-            localStorage.getItem("weddingLanguage") || "hy";
-
-        /* Make Webhook */
-        const webhookURL =
-            "https://hook.eu1.make.com/auvvx0q6cafpphz34hrinbnaw67roy3s";
-
-        const data = new URLSearchParams();
-
-        data.append("name", name);
-        data.append("phone", phone);
-        data.append("side", side);
-        data.append("guestCount", guestCount);
-        data.append("answer", answer);
-        data.append("language", currentLang);
-
-        fetch(webhookURL, {
-            method: "POST",
-            mode: "no-cors",
-            body: data
-        })
-        .then(function () {
-
-            if (currentLang === "ru") {
-
-                alert(
-                    "Спасибо ❤️ Ваш ответ отправлен."
-                );
-
-            } else {
-
-                alert(
-                    "Շնորհակալություն ❤️ Ձեր պատասխանը ուղարկված է։"
-                );
-
-            }
-
-            rsvpForm.reset();
-
-        })
-        .catch(function (error) {
-
-            console.error(
-                "RSVP Error:",
-                error
-            );
-
-            if (currentLang === "ru") {
-
-                alert(
-                    "Не удалось отправить. Попробуйте ещё раз."
-                );
-
-            } else {
-
-                alert(
-                    "Չհաջողվեց ուղարկել։ Խնդրում ենք կրկին փորձել։"
-                );
-
-            }
-
-        });
-
-    });
-
-});
+    message.style.display = "block";
 }
