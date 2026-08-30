@@ -11,11 +11,17 @@ function showSimpleThankYou() {
 
     message.classList.remove("hy", "ru");
 
-    if (document.body.classList.contains("ru")) {
-        message.classList.add("ru");
-    } else {
-        message.classList.add("hy");
-    }
+    /*
+       Լեզուն վերցնում ենք HTML-ից
+       <html lang="hy"> կամ <html lang="ru">
+    */
+
+    const lang =
+        document.documentElement.lang === "ru"
+            ? "ru"
+            : "hy";
+
+    message.classList.add(lang);
 
     message.style.display = "block";
 }
@@ -46,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
            ====================================== */
 
         const lang =
-            document.body.classList.contains("ru")
+            document.documentElement.lang === "ru"
                 ? "ru"
                 : "hy";
 
