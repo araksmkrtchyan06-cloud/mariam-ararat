@@ -250,4 +250,6 @@ function changeLanguage(lang) {
     }
 
 }
+window.changeLanguage = changeLanguage;
+window.translations = translations;
 
