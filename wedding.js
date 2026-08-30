@@ -315,3 +315,174 @@ function showSimpleThankYou() {
 
     message.style.display = "block";
 }
+/* ==========================================
+   RSVP — ՏՎՅԱԼՆԵՐԻ ՈՒՂԱՐԿՈՒՄ
+   ========================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const form = document.getElementById("rsvpForm");
+
+    if (!form) return;
+
+    form.addEventListener("submit", async function (e) {
+
+        e.preventDefault();
+
+        const lang =
+            document.body.classList.contains("ru")
+                ? "ru"
+                : "hy";
+
+        const t = translations[lang];
+
+        const sendButton =
+            document.getElementById("send");
+
+        /* Ուղարկվում է */
+
+        if (sendButton) {
+            sendButton.disabled = true;
+            sendButton.textContent =
+                t.sending || (lang === "ru"
+                    ? "Отправляется..."
+                    : "Ուղարկվում է...");
+        }
+
+        /* Դաշտեր */
+
+        const name =
+            document.getElementById("name")?.value.trim();
+
+        const phone =
+            document.getElementById("phone")?.value.trim();
+
+        const guestCount =
+            document.getElementById("guestCount")?.value;
+
+        const side =
+            document.getElementById("side")?.value;
+
+        const attendance =
+            document.querySelector(
+                'input[name="attendance"]:checked'
+            )?.value;
+
+
+        /* Բոլոր դաշտերը լրացվա՞ծ են */
+
+        if (
+            !name ||
+            !phone ||
+            !guestCount ||
+            !side ||
+            !attendance
+        ) {
+
+            alert(
+                t.fillAll ||
+                (lang === "ru"
+                    ? "Пожалуйста, заполните все поля."
+                    : "Խնդրում ենք լրացնել բոլոր դաշտերը։")
+            );
+
+            if (sendButton) {
+                sendButton.disabled = false;
+                sendButton.textContent = t.send;
+            }
+
+            return;
+        }
+
+
+        /* Տվյալներ */
+
+        const data = {
+
+            name: name,
+
+            phone: phone,
+
+            guestCount: guestCount,
+
+            side: side,
+
+            answer: attendance
+
+        };
+
+
+        try {
+
+            /* ======================================
+               CLOUDFLARE WORKER
+               ====================================== */
+
+            const response = await fetch(
+                "https://polished-wildflower-a173.araksmkrtchyan06.workers.dev/",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify(data)
+                }
+            );
+
+
+            const result =
+                await response.json();
+
+
+            if (!response.ok || !result.success) {
+
+                throw new Error(
+                    result.error || "RSVP error"
+                );
+
+            }
+
+
+            /* Հաջող ուղարկվեց */
+
+            form.reset();
+
+            showSimpleThankYou();
+
+
+        } catch (error) {
+
+            console.error(
+                "RSVP ERROR:",
+                error
+            );
+
+            alert(
+                t.sendError ||
+                (lang === "ru"
+                    ? "Не удалось отправить данные. Пожалуйста, попробуйте ещё раз."
+                    : "Տվյալները չհաջողվեց ուղարկել։ Խնդրում ենք կրկին փորձել։")
+            );
+
+
+        } finally {
+
+            if (sendButton) {
+
+                sendButton.disabled = false;
+
+                sendButton.textContent =
+                    t.send ||
+                    (lang === "ru"
+                        ? "Отправить"
+                        : "Ուղարկել");
+
+            }
+
+        }
+
+    });
+
+});
